@@ -1,0 +1,4 @@
+{
+  "connection_string": "root:my-password@tcp(127.0.0.1:3306)/petadoptiondb",
+  "port": 8080
+}
