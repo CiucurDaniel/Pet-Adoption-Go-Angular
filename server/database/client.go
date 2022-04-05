@@ -22,5 +22,6 @@ func Connect(connectionString string) {
 
 func Migrate() {
 	Instance.AutoMigrate(&entities.User{})
+	Instance.AutoMigrate(&entities.Post{})
 	log.Println("database migration for users completed")
 }
