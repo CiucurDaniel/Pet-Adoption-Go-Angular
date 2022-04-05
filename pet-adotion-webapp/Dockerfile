@@ -24,4 +24,4 @@ EXPOSE 80
 
 
 # docker build -t pet-adoption-webapp:latest .
-# docker run -it -p 8079:80 pet-adoption-webapp
+# docker run --name pet-adoption-webapp -it -p 8079:80 pet-adoption-webapp
