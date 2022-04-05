@@ -6,5 +6,6 @@ type Post struct {
 	Description string `json:"description"`
 	County      string `json:"county"`
 	City        string `json:"city"`
+	PhoneNumber string `json:"phone_number"`
 	UserID uint `json:"user_id"`
 }
