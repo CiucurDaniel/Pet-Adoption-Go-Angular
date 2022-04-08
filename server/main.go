@@ -48,17 +48,27 @@ func main() {
 	// TODO: on root give the angular frontend
 	// http.Handle("/", ...angular-frontend)
 
-	RegisterUserRoutes(router)
+	RegisterAllRoutes(router)
 
 	log.Println(fmt.Sprintf("Starting server on port: %s", AppConfig.Port))
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%v", AppConfig.Port),router))
 
 }
 
+func RegisterAllRoutes(router *mux.Router) {
+	RegisterUserRoutes(router)
+	log.Println("User routes initialized")
+	RegisterPostRoutes(router)
+	log.Println("Post routes initialized")
+}
 func RegisterUserRoutes(router *mux.Router) {
 	router.HandleFunc("/api/users", controllers.GetAllUsers).Methods("GET")
 	router.HandleFunc("/api/users/{id}", controllers.GetUserById).Methods("GET")
 	router.HandleFunc("/api/users", controllers.CreateUser).Methods("POST")
 	router.HandleFunc("/api/users/{id}", controllers.UpdateUser).Methods("PUT")
 	router.HandleFunc("/api/users/{id}", controllers.DeleteUser).Methods("DELETE")
+}
+
+func RegisterPostRoutes(router *mux.Router){
+	log.Println("Not yet implemented")
 }
