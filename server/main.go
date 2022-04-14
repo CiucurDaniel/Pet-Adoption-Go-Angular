@@ -45,13 +45,10 @@ func main() {
 
 	router := mux.NewRouter()
 
-	// TODO: on root give the angular frontend
-	// http.Handle("/", ...angular-frontend)
-
 	RegisterAllRoutes(router)
 
 	log.Println(fmt.Sprintf("Starting server on port: %s", AppConfig.Port))
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%v", AppConfig.Port),router))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%v", AppConfig.Port), router))
 
 }
 
@@ -61,6 +58,7 @@ func RegisterAllRoutes(router *mux.Router) {
 	RegisterPostRoutes(router)
 	log.Println("Post routes initialized")
 }
+
 func RegisterUserRoutes(router *mux.Router) {
 	router.HandleFunc("/api/users", controllers.GetAllUsers).Methods("GET")
 	router.HandleFunc("/api/users/{id}", controllers.GetUserById).Methods("GET")
@@ -69,6 +67,6 @@ func RegisterUserRoutes(router *mux.Router) {
 	router.HandleFunc("/api/users/{id}", controllers.DeleteUser).Methods("DELETE")
 }
 
-func RegisterPostRoutes(router *mux.Router){
+func RegisterPostRoutes(router *mux.Router) {
 	log.Println("Not yet implemented")
 }
